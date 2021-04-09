@@ -42,6 +42,9 @@ function populateUI()
     const selectedMovieIndex = localStorage.getItem('selectedMovieIndex');
     if(selectedMovieIndex !== null)
        movieSelect.selectedIndex = selectedMovieIndex;
+    const selectedMoviePrice = localStorage.getItem('selectedMoviePrice');
+    if(selectedMoviePrice !== null)
+       ticketPrice.value = +selectedMoviePrice;
 }
 
 //Movie Select Event
@@ -55,7 +58,7 @@ movieSelect.addEventListener('change', e => {
 container.addEventListener('click', (e) => {
     if(e.target.classList.contains('seat') && !e.target.classList.contains('occupied')) {
         e.target.classList.toggle('selected');
-        updateSelectedCountandTotal();
+        updateSelectedCountAndTotal();
     }
 });
 
